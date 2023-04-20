@@ -1,0 +1,90 @@
+@use '../base/mixins' as m;
+@use '../base/variables' as v;
+
+
+.derecha{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include m.tablet{
+        align-items: flex-end;
+    }
+    .dark-mode-btn{
+        width: 3rem;
+        margin: 3rem 0;
+        filter: invert(100);
+
+        &:hover{
+            cursor: pointer;
+        }
+        @include m.tablet{
+            margin-top: 0.5rem;
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+
+.barra{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include m.tablet{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+}
+
+.navegacion{
+
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    transition: visibility .3s ease-in-out, opacity 0.5s linear, height .5s linear;
+
+    @include m.tablet{
+        display: flex;
+        align-items: center;
+        opacity: 1;
+        visibility: visible;
+    }
+    a{
+        color: v.$blanco;
+        text-decoration: none;
+        font-size: 2.2rem;
+        display: block;
+        text-align: center;
+
+        @include m.tablet{
+            margin-right: 2rem;
+            font-size: 1.8rem;
+
+            &:last-of-type{
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+// menu movil
+.mobile-menu{
+    @include m.tablet{
+        display: none;
+    }
+
+    img{
+        width: 5rem;
+    }
+}
+
+.mostrar{
+    visibility: visible;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    @include m.tablet{
+        flex-direction: row;
+    }
+}
